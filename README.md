@@ -1,4 +1,4 @@
-# Retry
+# Retry Utils
 
 This lib aims to apply retry patterns for various needed situations.
 
