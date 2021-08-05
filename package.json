@@ -1,0 +1,39 @@
+{
+  "name": "retry-utils",
+  "version": "0.0.1-rc",
+  "description": "",
+  "main": "./dist/retry-utils.js",
+  "scripts": {
+    "test": "jest --no-console",
+    "build": "webpack",
+    "release": "webpack",
+    "start": "webpack serve --open",
+    "lint": "eslint lib/",
+    "lint:fix": "eslint lib/ --fix",
+    "dist": "npm run lint && npm run build && npm run release"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "files": [
+    "/dist",
+    "/lib"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.31.0",
+    "jest": "^27.0.6",
+    "nock": "^13.1.1",
+    "terser-webpack-plugin": "^5.1.4",
+    "webpack": "^5.47.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
