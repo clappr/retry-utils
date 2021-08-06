@@ -34,8 +34,14 @@ const getSomething = () => {
     })
 }
 
-retryPromise(getSomething, 5, 1000, 2)
+let retryParameters: {
+  action: getSomething,
+  maxAttempts: 5,
+  baseDelay: 1000,
+  backOffFactor: 3
+}
+
+retryPromise(retryParameters)
   .then(() => console.log('Retry success'))
   .catch(() => console.log('Retry error'))
-
 ```
