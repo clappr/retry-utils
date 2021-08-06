@@ -3,12 +3,17 @@ import retryPromise from '../../lib/j/retryPromise'
 
 describe('Retry Promise Tests', () => {
   test('should reject promise if action parameter is null', () => {
-    let invalidAction = retryPromise(null)
+    let invalidAction = retryPromise({ action: null })
     return expect(invalidAction).rejects.toEqual('Action must be defined')
   })
 
   test('should reject promise if action parameter is empty', () => {
-    let invalidAction = retryPromise('')
+    let invalidAction = retryPromise({})
+    return expect(invalidAction).rejects.toEqual('Action must be defined')
+  })
+
+  test('should reject promise if a non mapped parameter is passed', () => {
+    let invalidAction = retryPromise({ nonExistent: 'x', dontKnow: 123 })
     return expect(invalidAction).rejects.toEqual('Action must be defined')
   })
 
@@ -18,14 +23,14 @@ describe('Retry Promise Tests', () => {
       .mockRejectedValueOnce('Fail')
       .mockRejectedValue('Definitive Fail')
     
-    let retryAction = retryPromise(action)
+    let retryAction = retryPromise({ action })
     return expect(retryAction).rejects.toEqual('Definitive Fail')
   })
 
   test('should return resolved promise if resolves immediately', () => {
     let action = jest.fn().mockResolvedValue('Success')
     
-    let retryAction = retryPromise(action)
+    let retryAction = retryPromise({ action })
     return expect(retryAction).resolves.toEqual('Success')
   })
 
@@ -36,7 +41,7 @@ describe('Retry Promise Tests', () => {
     .mockRejectedValueOnce('Fail')
     .mockResolvedValue('Success')
     
-    let retryAction = retryPromise(action)
+    let retryAction = retryPromise({ action })
     return expect(retryAction).resolves.toEqual('Success')
   })
 })
