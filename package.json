@@ -1,6 +1,6 @@
 {
   "name": "retry-utils",
-  "version": "0.0.2-rc",
+  "version": "0.0.3-rc",
   "description": "",
   "main": "./dist/retry-utils.js",
   "scripts": {
