@@ -7,10 +7,12 @@ This lib aims to apply retry patterns for various needed situations.
 `retryPromise` - Implements retries for a Promise with exponential backoff. The `retryPromise` method apply a fuzz factor of 50% in either direction. So if the ideal delay is `1000ms`, the actual delay will be randomly chosen between `500ms` and `1500ms`. Configuration:
 
   ```
-  @param {Promise} action Promise to be executed
-  @param {number} maxAttempts The maximum number of attempts that should be retried
-  @param {milliseconds} baseDelay The delay before the first retry, in milliseconds
-  @param {number} backOffFactor The multiplier for successive retry delays
+  retryParameters: {
+    action: 'Callback to be executed',
+    maxAttempts: 'The maximum number of attempts that should be retried'
+    baseDelay: 'The delay before the first retry, in milliseconds',
+    backOffFactor: 'The multiplier for successive retry delays'
+  }
   ```
 
 `anotherRetryMethod` - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque aliquet risus a ultricies.
@@ -22,7 +24,7 @@ This lib aims to apply retry patterns for various needed situations.
 `retryPromise`:
 
 ```
-import { retryPromise } from '@/retry'
+import { retryPromise } from 'retry-utils'
 
 const getSomething = () => {
   return fetch(`http://httpbin.org/status/500`)
