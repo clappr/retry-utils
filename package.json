@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --no-console",
     "build": "webpack",
-    "release": "webpack",
+    "build:dev": "webpack",
     "start": "webpack serve --open",
     "lint": "eslint lib/",
     "lint:fix": "eslint lib/ --fix",
