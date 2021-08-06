@@ -19,15 +19,13 @@ const customConfig = {
 /**
  * Dev config
  */
-if (NPM_RUN === 'build') {
+if (NPM_RUN === 'build:dev') {
   customConfig.mode = 'development'
   customConfig.filename = 'retry-utils.dev.js'
   customConfig.optimization = {
     minimize: false,
   }
 }
-
-console.log('>>> filename ',customConfig.filename)
 
 const webpackConfig = {
   mode: customConfig.mode,
