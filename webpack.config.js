@@ -6,26 +6,28 @@ const NPM_RUN = process.env.npm_lifecycle_event
  * Development config
  */
 const customConfig = {
-  mode: 'development',
-  filename: 'retry-utils.dev.js',
+  mode: 'production',
+  filename: 'retry-utils.js',
   optimization: {
-    minimize: false,
-  }
-}
-
-/**
- * Release config
- */
-if (NPM_RUN === 'release') {
-  customConfig.mode = 'production'
-  customConfig.filename = 'retry-utils.js'
-  customConfig.optimization = {
     minimize: true,
     minimizer: [new TerserPlugin({
       include: /\/*.js/,
     })],
   }
 }
+
+/**
+ * Dev config
+ */
+if (NPM_RUN === 'build') {
+  customConfig.mode = 'development'
+  customConfig.filename = 'retry-utils.dev.js'
+  customConfig.optimization = {
+    minimize: false,
+  }
+}
+
+console.log('>>> filename ',customConfig.filename)
 
 const webpackConfig = {
   mode: customConfig.mode,
