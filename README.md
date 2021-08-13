@@ -4,7 +4,9 @@ This lib aims to apply retry patterns for various needed situations.
 
 # Usage
 
-`retryPromise` - Implements retries for a callback function with exponential backoff, returning a **resolved** promise if successeds and a **rejected** promise if doesn't.
+`retryPromise` - Implements retries for a callback function with exponential backoff, returning a **resolved** promise if successeded and a **rejected** promise if doesn't.
+
+Configuration:
 
 ```
 retryParameters: {
@@ -18,7 +20,7 @@ retryParameters: {
 
 (*) Mandatory fields.
 
-The `retryPromise` method apply a fuzz factor of 50% in either direction. So if the ideal delay is `1000ms`, the actual delay will be randomly chosen between `500ms` and `1500ms`. Configuration:
+The `retryPromise` method apply a fuzz factor of 50% in either direction. So if the ideal delay is `1000ms`, the actual delay will be randomly chosen between `500ms` and `1500ms`. 
 
 <br>
 
