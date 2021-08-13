@@ -15,8 +15,6 @@ This lib aims to apply retry patterns for various needed situations.
   }
   ```
 
-`anotherRetryMethod` - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque aliquet risus a ultricies.
-
 <br>
 
 # Examples:
