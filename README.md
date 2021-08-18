@@ -38,11 +38,11 @@ The `retryPromise` method apply a fuzz factor of 50% in either direction. So if 
 ```
 {
   resource: 'Hey! I as successfull in the third attempt!'
-  retryHistory: {
+  retryHistory: [
     attempt_1 : { error: 'Failed at first' },
     attempt_2 : { error: 'Failed at second' },
     attempt_3 : { resource: 'Hey! I as successfull in the third attempt!' }
-  }
+  ]
 }
 ```
 
@@ -50,11 +50,11 @@ The `retryPromise` method apply a fuzz factor of 50% in either direction. So if 
 ```
 {
   error: 'Failed at my last attempt, sorry :('
-  retryHistory: {
+  retryHistory: [
     attempt_1 : { error: 'Failed at first' },
     attempt_2 : { error: 'Failed at second' },
     attempt_3 : { error: 'Failed at my last attempt, sorry :(' }
-  }
+  ]
 }
 ```
 
