@@ -37,11 +37,10 @@ The `retryPromise` method apply a fuzz factor of 50% in either direction. So if 
 
 ```
 {
-  resource: 'Hey! I as successfull in the third attempt!'
+  retryResponse: 'Hey! I as successfull in the third attempt!'
   retryHistory: [
-    attempt_1 : { error: 'Failed at first' },
-    attempt_2 : { error: 'Failed at second' },
-    attempt_3 : { resource: 'Hey! I as successfull in the third attempt!' }
+    attempt_1 : { retryError: 'Failed at first' },
+    attempt_2 : { retryError: 'Failed at second' }
   ]
 }
 ```
@@ -49,11 +48,11 @@ The `retryPromise` method apply a fuzz factor of 50% in either direction. So if 
 `When rejected`: A object with the error and the retry history flow, like:
 ```
 {
-  error: 'Failed at my last attempt, sorry :('
+  retryError: 'Failed at my last attempt, sorry :('
   retryHistory: [
-    attempt_1 : { error: 'Failed at first' },
-    attempt_2 : { error: 'Failed at second' },
-    attempt_3 : { error: 'Failed at my last attempt, sorry :(' }
+    attempt_1 : { retryError: 'Failed at first' },
+    attempt_2 : { retryError: 'Failed at second' },
+    attempt_3 : { retryError: 'Failed at my last attempt, sorry :(' }
   ]
 }
 ```
