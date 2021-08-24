@@ -1,5 +1,6 @@
 import { expect } from '@jest/globals'
 import retryPromise from '../../lib/j/retryPromise'
+import { retryFailMock, retrySuccessLastAttemptMock } from '../mock/retryPromiseMock'
 
 describe('Retry Promise Tests', () => {
   test('should reject promise if action parameter is null', () => {
@@ -24,12 +25,13 @@ describe('Retry Promise Tests', () => {
 
   test('should return rejected promise if all attempts fail', () => {
     let action = jest.fn()
-      .mockRejectedValueOnce({ error: 'Fail' })
-      .mockRejectedValueOnce({ error: 'Fail' })
-      .mockRejectedValue({ error: 'Fail' })
+      .mockRejectedValueOnce('Fail')
+      .mockRejectedValueOnce('Fail')
+      .mockRejectedValueOnce('Fail')
+      .mockRejectedValue('Definitive Fail')
     
     let retryAction = retryPromise({ action })
-    return expect(retryAction).rejects.toBeDefined()
+    return expect(retryAction).rejects.toMatchObject(retryFailMock)
   })
 
   test('should return resolved promise if resolves immediately', () => {
@@ -47,7 +49,7 @@ describe('Retry Promise Tests', () => {
     .mockResolvedValue('Success')
     
     let retryAction = retryPromise({ action })
-    return expect(retryAction).resolves.toBeDefined()
+    return expect(retryAction).resolves.toMatchObject(retrySuccessLastAttemptMock)
   })
 
   test('should return resolved promise if specified status code should be retryable', () => {
