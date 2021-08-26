@@ -1,6 +1,6 @@
 # Retry Utils
 
-[![npm version](https://badge.fury.io/js/retry-utils.svg)](https://badge.fury.io/js/retry-utils)
+[![npm version](https://badge.fury.io/js/@clappr%2Fretry-utils.svg)](https://badge.fury.io/js/@clappr%2Fretry-utils)
 
 This lib aims to apply retry patterns for various needed situations. The definitions were inspired by the [retry implementation of Shaka Player](https://github.com/google/shaka-player/blob/df5340fa2b708245f1737f6928f4452425d5341a/docs/tutorials/network-and-buffering-config.md).
 
