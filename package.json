@@ -1,7 +1,7 @@
 {
-  "name": "retry-utils",
-  "version": "1.2.1",
-  "description": "",
+  "name": "@clappr/retry-utils",
+  "version": "1.0.0",
+  "description": "[![npm version](https://badge.fury.io/js/retry-utils.svg)](https://badge.fury.io/js/retry-utils)",
   "main": "./dist/retry-utils.js",
   "scripts": {
     "test": "jest --no-console",
@@ -22,8 +22,8 @@
     "/lib"
   ],
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Clappr team",
+  "license": "BSD-3-Clause",
   "devDependencies": {
     "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.14.8",
@@ -38,6 +38,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/clappr/retry-utils.git"
+    "url": "git+https://github.com/clappr/retry-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/clappr/retry-utils/issues"
+  },
+  "homepage": "https://github.com/clappr/retry-utils#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
   }
 }
