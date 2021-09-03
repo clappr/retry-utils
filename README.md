@@ -1,6 +1,11 @@
 # Retry Utils
 
 [![npm version](https://badge.fury.io/js/@clappr%2Fretry-utils.svg)](https://badge.fury.io/js/@clappr%2Fretry-utils)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/@clappr/retry-utils?style=flat-square)](https://bundlephobia.com/result?p=@clappr/retry-utils)
+[![Coverage Status](https://coveralls.io/repos/github/clappr/retry-utils/badge.svg?branch=main)](https://coveralls.io/github/clappr/retry-utils?branch=main)
+![Travis (.com)](https://img.shields.io/travis/com/leticia.fernandes/retry-utils?style=flat-square)
+
+
 
 This lib aims to apply retry patterns for various needed situations. The definitions were inspired by the [retry implementation of Shaka Player](https://github.com/google/shaka-player/blob/df5340fa2b708245f1737f6928f4452425d5341a/docs/tutorials/network-and-buffering-config.md).
 
@@ -21,11 +26,15 @@ retryParameters: {
   maxAttempts: 'The maximum number of attempts that should be retried'
   baseDelay: 'The delay before the first retry, in milliseconds',
   backOffFactor: 'The multiplier for successive retry delays'
-  retryableErrors: 'A array specifying which HTTP status should be at retry flow'
+  retryableErrors: 'A array specifying which HTTP status should be at retry flow' (**)
 }
 ```
 
 (*) Mandatory fields.
+
+(**) To use the `retryableErrors` property you must pass the status code into the error object, like demonstrated in `Examples` section (`getSomething` method).
+
+<br>
 
 The `retryPromise` method apply a fuzz factor of 50% in either direction. So if the ideal delay is `1000ms`, the actual delay will be randomly chosen between `500ms` and `1500ms`. 
 
@@ -70,7 +79,7 @@ const getSomething = () => {
   return fetch(`http://httpbin.org/status/500`)
     .then((response) => {
       if (response.ok) return response
-      throw new Error(response.statusText)
+      throw new Error({ statusCode: response.status })
     })
 }
 
@@ -83,6 +92,6 @@ let retryParameters: {
 }
 
 retryPromise(retryParameters)
-  .then(() => console.log('Retry success'))
-  .catch(() => console.log('Retry error'))
+  .then((data) => console.log('Retry success ', data))
+  .catch((error) => console.log('Retry error ', error))
 ```
