@@ -4,7 +4,7 @@
   "description": "reusable retry logic using exponential backoff pattern",
   "main": "./dist/retry-utils.js",
   "scripts": {
-    "test": "jest --no-console",
+    "test": "jest --coverage --silent",
     "build": "webpack",
     "build:dev": "webpack",
     "start": "webpack serve --open",
@@ -47,5 +47,16 @@
   "directories": {
     "lib": "lib",
     "test": "tests"
-  }
+  },
+  "engines": {
+    "node": "^12"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "not ie <= 11"
+  ]
 }

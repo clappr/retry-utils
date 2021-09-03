@@ -2,8 +2,8 @@
 
 [![npm version](https://badge.fury.io/js/@clappr%2Fretry-utils.svg)](https://badge.fury.io/js/@clappr%2Fretry-utils)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@clappr/retry-utils?style=flat-square)](https://bundlephobia.com/result?p=@clappr/retry-utils)
-[![Coverage Status](https://coveralls.io/repos/github/clappr/retry-utils/badge.svg?branch=main)](https://coveralls.io/github/clappr/retry-utils?branch=main)
-![Travis (.com)](https://img.shields.io/travis/com/leticia.fernandes/retry-utils?style=flat-square)
+[![Build Status](https://app.travis-ci.com/clappr/retry-utils.svg?branch=main)](https://app.travis-ci.com/clappr/retry-utils)
+![Travis (.com)](https://img.shields.io/travis/com/clappr/retry-utils?style=flat-square)
 
 
 
