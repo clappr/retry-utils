@@ -1,6 +1,11 @@
 # Retry Utils
 
 [![npm version](https://badge.fury.io/js/@clappr%2Fretry-utils.svg)](https://badge.fury.io/js/@clappr%2Fretry-utils)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/@clappr/retry-utils?style=flat-square)](https://bundlephobia.com/result?p=@clappr/retry-utils)
+[![Coverage Status](https://coveralls.io/repos/github/clappr/retry-utils/badge.svg?branch=main)](https://coveralls.io/github/clappr/retry-utils?branch=main)
+![Travis (.com)](https://img.shields.io/travis/com/leticia.fernandes/retry-utils?style=flat-square)
+
+
 
 This lib aims to apply retry patterns for various needed situations. The definitions were inspired by the [retry implementation of Shaka Player](https://github.com/google/shaka-player/blob/df5340fa2b708245f1737f6928f4452425d5341a/docs/tutorials/network-and-buffering-config.md).
 
