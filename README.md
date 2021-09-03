@@ -26,11 +26,15 @@ retryParameters: {
   maxAttempts: 'The maximum number of attempts that should be retried'
   baseDelay: 'The delay before the first retry, in milliseconds',
   backOffFactor: 'The multiplier for successive retry delays'
-  retryableErrors: 'A array specifying which HTTP status should be at retry flow'
+  retryableErrors: 'A array specifying which HTTP status should be at retry flow' (**)
 }
 ```
 
 (*) Mandatory fields.
+
+(**) To use the `retryableErrors` property you must pass the status code into the error object, like demonstrated in `Examples` section (`getSomething` method).
+
+<br>
 
 The `retryPromise` method apply a fuzz factor of 50% in either direction. So if the ideal delay is `1000ms`, the actual delay will be randomly chosen between `500ms` and `1500ms`. 
 
@@ -75,7 +79,7 @@ const getSomething = () => {
   return fetch(`http://httpbin.org/status/500`)
     .then((response) => {
       if (response.ok) return response
-      throw new Error(response.statusText)
+      throw new Error({ statusCode: response.status })
     })
 }
 
@@ -88,6 +92,6 @@ let retryParameters: {
 }
 
 retryPromise(retryParameters)
-  .then(() => console.log('Retry success'))
-  .catch(() => console.log('Retry error'))
+  .then((data) => console.log('Retry success ', data))
+  .catch((error) => console.log('Retry error ', error))
 ```
