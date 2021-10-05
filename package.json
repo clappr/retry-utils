@@ -48,9 +48,6 @@
     "lib": "lib",
     "test": "tests"
   },
-  "engines": {
-    "node": "^12"
-  },
   "publishConfig": {
     "access": "public"
   },
